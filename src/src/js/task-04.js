@@ -1,19 +1,22 @@
-const counterValue = 0;
+let counterValue = 0;
 
-const addListenerBtn = document.querySelector('[data-action="decrement"]');
-const removeListenerBtn = document.querySelector('[data-action="increment"]');
-const btn = document.querySelector("#btn");
+const incrementListenerBtn = document.querySelector(".increment-button");
+const decrementListenerBtn = document.querySelector(".decrement-button");
+let span = document.getElementById("value");
+span.textContent = counterValue;
 
-const handleClick = () => {
-  console.log("click event listener callback");
-};
-
-addListenerBtn.addEventListener("click", () => {
-  btn.addEventListener("click", handleClick);
-  console.log("click event listener was added to btn");
+incrementListenerBtn.addEventListener("click", (updateDisplay) => {
+  counterValue++;
+  let span = document.getElementById("value");
+  span.textContent = counterValue;
+  console.log("Клик");
 });
 
-removeListenerBtn.addEventListener("click", () => {
-  btn.removeEventListener("click", handleClick);
-  console.log("click event listener was removed from btn");
+decrementListenerBtn.addEventListener("click", (updateDisplay) => {
+  counterValue--;
+  console.log("Клик");
 });
+
+function updateDisplay(value) {
+  document.getElementById("value").innerHTML = counterValue;
+}
