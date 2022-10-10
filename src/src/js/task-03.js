@@ -14,17 +14,13 @@ const images = [
 ];
 
 //
+const list = document.querySelector(".gallery");
+list.style.display = "flex";
+list.style.flexDirection = "column";
 
-const gallery = document.querySelector("#gallery");
-
-const getAllImages = (gallery) => {
-  // const arr = [];
-
-  for (const image of images) {
-    const menuItemsByTagName = document.createElement("li");
-    menuItemsByTagName.classList.add("item");
-    const img = li.children;
-    img.insertAdjacentHTML("afterbegin", "<li><img></li>");
-  }
-  // return arr;
-};
+images.map((image, index, images) => {
+  list.insertAdjacentHTML(
+    "afterend",
+    `<li><img src="${image.url}" alt="${image.alt}"></li>`
+  );
+});
