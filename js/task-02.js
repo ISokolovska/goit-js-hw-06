@@ -9,9 +9,11 @@ const ingredients = [
 
 const listIngredients = document.querySelector("#ingredients");
 
-ingredients.map((ingredient, index, ingredients) => {
+const markup = ingredients.map((ingredient, index, ingredients) => {
   const menuItemsByTagName = document.createElement("li");
   menuItemsByTagName.textContent = ingredient;
-  listIngredients.prepend(menuItemsByTagName);
   menuItemsByTagName.classList.add("item");
+  return menuItemsByTagName;
 });
+
+listIngredients.append(...markup);

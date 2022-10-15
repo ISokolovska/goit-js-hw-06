@@ -15,12 +15,14 @@ const images = [
 
 //
 const list = document.querySelector(".gallery");
+const markup = images
+  .map(
+    ({ url, alt }) =>
+      `<li><img src="${url}" alt="${alt}" width="700px" height="700px"></li>`
+  )
+  .join("");
+list.insertAdjacentHTML("beforeend", markup);
+
 list.style.display = "flex";
 list.style.flexDirection = "column";
-
-images.map((image, index, images) => {
-  list.insertAdjacentHTML(
-    "afterend",
-    `<li><img src="${image.url}" alt="${image.alt}"></li>`
-  );
-});
+list.style.listStyle = "none";
